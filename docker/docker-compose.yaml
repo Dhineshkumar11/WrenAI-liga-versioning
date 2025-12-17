@@ -34,7 +34,9 @@ services:
       - bootstrap
 
   ibis-server:
-    image: ghcr.io/canner/wren-engine-ibis:${IBIS_SERVER_VERSION}
+    build:
+      context: ../wren-engine/ibis-server
+      dockerfile: Dockerfile
     restart: on-failure
     platform: ${PLATFORM}
     expose:
@@ -81,7 +83,13 @@ services:
       - wren
 
   wren-ui:
+<<<<<<< Updated upstream
     image: ghcr.io/canner/wren-ui:${WREN_UI_VERSION}
+=======
+    build:
+      context: ../wren-ui
+      dockerfile: Dockerfile
+>>>>>>> Stashed changes
     restart: on-failure
     platform: ${PLATFORM}
     environment:
